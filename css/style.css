@@ -412,7 +412,10 @@ body {
 @media (max-width: 768px) {
   .hero {
     background-attachment: scroll;
-    background-position: 50% 20%;
+    background-position: center top;   /* centrata in alto */
+    background-size: contain;          /* mostra l’immagine quasi tutta */
+    background-repeat: no-repeat;
+    background-color: #87cfe0;         /* colore di riempimento ai lati/sotto */
   }
 
   .nav-bar {
