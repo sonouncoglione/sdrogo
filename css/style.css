@@ -418,10 +418,11 @@ body {
   /* HERO (mobile version) */
   .hero {
     background-image: url("../images/bg-mob.png");
-    background-size: auto 120%;   /* 👈 era 100%, puoi provare 110 / 115 / 120 */
-    background-position: center top;
-    background-attachment: scroll;
-    min-height: 100vh;
+    background-size: contain;        /* 👈 MOSTRA TUTTA L’IMMAGINE RIMPICCIOLITA */
+    background-repeat: no-repeat;    /* niente ripetizione */
+    background-position: center top; /* parte alta ben visibile */
+    background-color: #87cfe0;       /* colore di riempimento */
+    min-height: 100vh;               /* mantiene l’hero full-screen */
     display: flex;
     flex-direction: column;
 }
