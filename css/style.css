@@ -414,20 +414,19 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* HERO su mobile:
-     - niente effetto parallax
-     - sfondo meno “zoomato”
-     - sempre alto come la viewport */
+
+  /* HERO (mobile version) */
   .hero {
+    background-image: url("../images/bg-mob.png");  /* nuova immagine mobile */
+    background-size: cover;                         /* riempie lo schermo */
+    background-position: center top;                /* mostra bene la parte superiore */
     background-attachment: scroll;
-    background-size: auto 100%;     /* adatta l’altezza, non “cover” totale */
-    background-position: center top;/* vedi meglio parte alta dell’immagine */
-    min-height: 100vh;              /* torna a occupare tutto il primo schermo */
-    display: flex;                  /* come su desktop */
+    min-height: 100vh;                              /* full screen */
+    display: flex;
     flex-direction: column;
   }
 
-  /* NAV BAR MOBILE */
+  /* NAV MOBILE */
   .nav-bar {
     padding: 14px 20px 0;
   }
@@ -463,7 +462,8 @@ body {
     pointer-events: auto;
   }
 
-  /* TESTO HERO */
+
+  /* TESTO HERO MOBILE */
   .hero-content {
     position: relative;
     padding: 40px 16px 80px;
@@ -484,7 +484,8 @@ body {
     margin-left: 40px;
   }
 
-  /* MASSOTERAPIA mobile */
+
+  /* MASSOTERAPIA MOBILE */
   .massoterapia-title {
     margin-left: 24px;
     text-align: left;
@@ -512,7 +513,8 @@ body {
     padding: 0 16px;
   }
 
-  /* CONTATTI mobile */
+
+  /* CONTATTI MOBILE */
   .contacts-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px 12px;
