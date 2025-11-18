@@ -1,0 +1,513 @@
+:root {
+  --bg-aqua: #87cfe0;
+  --text-main: #222222;
+  --accent-yellow: #f6b423;
+  --nav-link: #111111;
+  --nav-link-hover: #555555;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  color: var(--text-main);
+  background-color: #EDE9E4;
+}
+
+/* CONTAINER GENERICO */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-image: url("../images/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+      to bottom,
+      rgba(135, 207, 224, 0.95) 0%,     /* AZZURRO MOLTO FORTE */
+      rgba(135, 207, 224, 0.70) 22%,   /* ancora ben visibile */
+      rgba(135, 207, 224, 0.35) 45%,   /* ammorbidisce */
+      rgba(255, 255, 255, 0) 70%,      /* diventa trasparente */
+      rgba(0, 0, 0, 0.10) 100%         /* leggerissimo scuro finale */
+  );
+
+  pointer-events: none;
+}
+
+
+
+/* NAV BAR */
+
+.nav-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 110px; /* logo grande */
+  width: auto;
+}
+
+/* NAV LINKS */
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 1.15rem;          /* voci menu più grandi */
+  letter-spacing: 0.12em;
+  color: var(--nav-link);
+  text-transform: uppercase;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--nav-link-hover);
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* HAMBURGER MOBILE */
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 4px 0;
+  background-color: var(--nav-link);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* HERO CONTENT */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  padding: 40px 16px 80px;
+}
+
+.hero-title {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+}
+
+/* linee "Riscopri" e "il tuo corpo" */
+
+.hero-line {
+  font-family: "Splash", cursive;
+  font-size: clamp(4rem, 8vw, 6rem); /* MOLTO grande */
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #000000;
+  white-space: nowrap;
+
+  /* stato iniziale "nascosto" */
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(24px);
+}
+
+/* seconda riga spostata a destra */
+.hero-line2 {
+  margin-left: 90px;
+}
+
+/* quando JS aggiunge .animate parte l'animazione */
+.hero-line.animate {
+  animation: heroFadeIn 0.8s ease-out forwards;
+}
+
+/* la seconda riga entra con un leggero ritardo */
+.hero-line2.animate {
+  animation-delay: 0.15s;
+}
+
+/* animazione sfumata */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+/* SEZIONE MASSOTERAPIA */
+
+.section-massoterapia {
+  margin-top: 0;
+}
+
+/* parte bianca superiore */
+
+.massoterapia-top {
+  background-color: #EDE9E4;
+  padding: 70px 0 0;
+}
+
+/* MASSOTERAPIA sul bordo azzurro */
+.massoterapia-title {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(4rem, 6vw, 5rem); /* molto grande */
+  margin: 0 0 0 80px; /* spostata a sinistra come nello screen */
+  position: relative;
+  z-index: 2;
+}
+
+/* fascia azzurra */
+
+.massoterapia-middle {
+  background-color: var(--bg-aqua);
+  margin-top: -22px;      /* l’azzurro sale sotto alle lettere */
+  padding: 120px 0 100px;
+}
+
+/* fascia bianca con frase gialla al centro */
+
+.massoterapia-bottom {
+  background-color: #EDE9E4;
+  padding: 150px 0 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* testo descrizione */
+
+.section-text {
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-size: 1.1rem;  /* più grande */
+  margin-left: 74px;
+}
+
+/* frase gialla */
+
+.section-quote {
+  text-align: center;
+  font-family: "Dancing Script", cursive;
+  font-style: italic;
+  color: var(--accent-yellow);
+  font-size: clamp(1.9rem, 3vw, 2.3rem);
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* SEZIONE CONTATTI */
+
+.section-contatti {
+  margin-top: 0;
+}
+
+.section-top-white {
+  background-color: #EDE9E4;
+  height: 80px;
+}
+
+.contatti-body {
+  background-color: var(--bg-aqua);
+  padding: 60px 0 110px;
+}
+
+/* Titolo contatti centrato e grande */
+
+.contatti-title {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(3.4rem, 5vw, 4rem);
+  text-align: center;
+  margin: 0;
+}
+
+/* griglia contatti */
+
+.contacts-grid {
+  margin-top: 110px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px;
+  justify-items: center;
+  align-items: flex-start;
+}
+
+.contact-item {
+  text-align: center;
+}
+
+/* wrapper per allineare tutte le icone alla stessa altezza */
+.icon-wrapper {
+  height: 80px;                 /* altezza comune per tutte le icone */
+  display: flex;
+  align-items: center;          /* centra l’icona verticalmente */
+  justify-content: center;      /* centra l’icona orizzontalmente */
+  margin-bottom: 16px;
+}
+
+/* base icone */
+.contact-icon {
+  object-fit: contain;
+}
+
+/* classi dedicate per ogni icona (puoi modificarle come vuoi) */
+.icon-position {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-instagram {
+  width: 120px;
+  height: 120px;
+}
+
+.icon-phone {
+  width: 56px;
+  height: 56px;
+}
+
+.icon-mail {
+  width: 50px;
+  height: 50px;
+}
+
+.contact-label {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.contact-link {
+  color: #000000;        /* link nero */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+/* ANIMAZIONI ALLO SCROLL */
+
+.scroll-section {
+  opacity: 0;
+  transform: none;
+  transition: opacity 0.9s ease;
+}
+
+.scroll-section.visible {
+  opacity: 1;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 {
+  transition-delay: 0.15s;
+}
+
+.delay-2 {
+  transition-delay: 0.3s;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 960px) {
+  .logo {
+    height: 110px;
+  }
+
+  .nav-links {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background-attachment: scroll;
+  }
+
+  .nav-bar {
+    padding: 14px 20px 0;
+  }
+
+  .logo {
+    height: 90px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 16px 20px;
+    border-radius: 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .hero-content {
+    justify-content: center;
+  }
+
+  .hero-line {
+    font-size: 3.2rem;
+  }
+
+  .hero-line2 {
+    margin-left: 40px;
+  }
+
+  .massoterapia-title {
+    margin-left: 24px;
+    text-align: left;
+    font-size: 3.4rem;
+  }
+
+  .massoterapia-middle {
+    margin-top: -30px;
+    padding: 80px 0 60px;
+  }
+
+  .contacts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 12px;
+  }
+
+  .icon-wrapper {
+    height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 70px;
+  }
+
+  .hero-line {
+    font-size: 2.7rem;
+  }
+
+  .hero-line2 {
+    margin-left: 24px;
+  }
+
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-text {
+    font-size: 0.98rem;
+  }
+
+  .section-quote {
+    font-size: 1.5rem;
+  }
+
+  .icon-wrapper {
+    height: 64px;
+  }
+}
