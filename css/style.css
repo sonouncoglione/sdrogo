@@ -414,20 +414,17 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* HERO: niente background, uso la <img> */
+  /* HERO su mobile:
+     - niente effetto parallax
+     - sfondo meno “zoomato”
+     - sempre alto come la viewport */
   .hero {
-    background-image: none;
-    background-color: #87cfe0;
     background-attachment: scroll;
-    min-height: auto;          /* l'altezza la dà l'immagine */
-    position: relative;
-    display: block;            /* non più flex, così l'immagine occupa lo spazio */
-  }
-
-  .hero-mobile-bg {
-    display: block;            /* visibile solo su mobile */
-    width: 100%;
-    height: auto;              /* mostra tutta l'immagine senza tagliarla */
+    background-size: auto 100%;     /* adatta l’altezza, non “cover” totale */
+    background-position: center top;/* vedi meglio parte alta dell’immagine */
+    min-height: 100vh;              /* torna a occupare tutto il primo schermo */
+    display: flex;                  /* come su desktop */
+    flex-direction: column;
   }
 
   /* NAV BAR MOBILE */
@@ -466,14 +463,13 @@ body {
     pointer-events: auto;
   }
 
-  /* TESTO HERO SOPRA L'IMMAGINE */
+  /* TESTO HERO */
   .hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0 16px 40px;
+    position: relative;
+    padding: 40px 16px 80px;
     text-align: center;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-title {
@@ -481,14 +477,14 @@ body {
   }
 
   .hero-line {
-    font-size: 2.7rem;
+    font-size: 3.2rem;
   }
 
   .hero-line2 {
-    margin-left: 24px;
+    margin-left: 40px;
   }
 
-  /* MASSOTERAPIA TESTO CENTRATO */
+  /* MASSOTERAPIA mobile */
   .massoterapia-title {
     margin-left: 24px;
     text-align: left;
@@ -516,7 +512,7 @@ body {
     padding: 0 16px;
   }
 
-  /* CONTATTI GRID MOBILE */
+  /* CONTATTI mobile */
   .contacts-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px 12px;
